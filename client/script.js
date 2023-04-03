@@ -38,7 +38,7 @@ function chatStripe(isAi, value, uniqueId) {
   return `
     <div class="wrapper ${isAi && `ai`}">
       <div class="chat">
-        <div className="profile">
+        <div class="profile">
           <img
             src="${isAi ? bot : user}"
             alt="${isAi ? "bot" : "user"}"
@@ -87,9 +87,11 @@ const handleSubmit = async (e) => {
     const data = await response.json();
     const parsedData = data.bot.trim();
 
+    console.log({ parsedData });
+
     typeText(messageDiv, parsedData);
   } else {
-    err = await response.text();
+    const err = await response.text();
 
     messageDiv.innerHTML = "Something went wrong.";
 
