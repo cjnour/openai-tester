@@ -6,16 +6,16 @@ const chatContainer = document.querySelector("#chat_container");
 
 let loadInterval;
 
-const loader = (element) => {
+function loader(element) {
   element.textContent = "";
 
   loadInterval = setInterval(() => {
     element.textContent += ".";
     if (element.textContent === "...") element.textContent = "";
   }, 300);
-};
+}
 
-const typeText = (element, text) => {
+function typeText(element, text) {
   let index = 0;
 
   let interval = setInterval(() => {
@@ -24,12 +24,14 @@ const typeText = (element, text) => {
       index++;
     } else clearInterval(interval);
   });
-};
+}
 
-const generateUniqueId = () => {
+function generateUniqueId() {
   const timestamp = Date.now();
   const randomNumber = Math.random();
   const hexadecimalString = randomNumber.toString(16);
 
   return `id-${timestamp}-${hexadecimalString}`;
-};
+}
+
+function chatStripe(isAi, value, uniqueId) {}
